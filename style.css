@@ -9,6 +9,36 @@ body {
 }
 
 
+.wrapper {
+  height: 100vh; /* or a specific height for the section */
+  overflow-x: hidden;
+  overflow-y: auto; /* enables scrolling within the wrapper */
+  perspective: 1px; /* The smaller the value, the slower the background scrolls */
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('jefferson.jpg');
+  background-size: cover;
+  background-position: center;
+  /* Moves the background "further away" in 3D space */
+  transform: translateZ(-1px) scale(2); /* scale compensates for the z-move to fill the viewport */
+  z-index: -1; /* ensures it stays behind the content */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* ensures content is in front */
+  /*background-color: #f0f0f0; /* adds a background color for contrast */
+  /* Add padding/margin to make the page scrollable */
+  padding: 50px;
+}
+
+
 /* Initial state: off-screen and invisible */
 .animate-text {
   opacity: 0;
